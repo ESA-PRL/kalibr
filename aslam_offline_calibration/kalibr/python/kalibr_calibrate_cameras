@@ -20,7 +20,7 @@ import sys
 import random
 import signal
 
-np.set_printoptions(suppress=True)
+np.set_printoptions(suppress=False)
 
 def initBagDataset(bagfile, topic, from_to):
     print "\tDataset:          {0}".format(bagfile)

@@ -12,6 +12,8 @@ import pylab as pl
 import Image
 import time
 
+import inspect
+
 # make numpy print prettier
 np.set_printoptions(suppress=True)
 
@@ -238,7 +240,8 @@ class MulticamCalibrationGraph(object):
         #solve the pnp problem
         camera_geomtry = cameras[cam_id_max].geometry
         success, T_t_cN = camera_geomtry.estimateTransformation(self.obs_db.getObservationAtTime(timestamp, cam_id_max))
-               
+        #print(inspect.getmembers(T_t_cN))
+        #print T_t_cN.t(1.0)       
         if not success:
             sm.logWarn("getTargetPoseGuess: solvePnP failed with solution: {0}".format(T_t_cN))
         

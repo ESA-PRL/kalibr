@@ -128,7 +128,8 @@ bool GridDetector::findTarget(const cv::Mat & image, const aslam::Time & stamp,
       outObservation.set_T_t_c(trafo);
     else
       SM_DEBUG_STREAM("estimateTransformation() failed");
-  }
+
+   }
 
   //remove corners with a reprojection error above a threshold
   //(remove detection outliers)

@@ -1,5 +1,6 @@
 #include <opencv2/core/eigen.hpp>
 #include <Eigen/StdVector>
+#include <stdio.h>
 
 namespace aslam {
 
@@ -867,10 +868,13 @@ bool PinholeProjection<DISTORTION_T>::estimateTransformation(
   cv::Mat C_camera_model = cv::Mat::eye(3, 3, CV_64F);
   Eigen::Matrix4d T_camera_model = Eigen::Matrix4d::Identity();
   cv::Rodrigues(rvec, C_camera_model);
+  std::cout << "PRINTING T_CAMERA_MODEL" << std::endl;
   for (int r = 0; r < 3; ++r) {
     T_camera_model(r, 3) = tvec.at<double>(r, 0);
+    std::cout << r+1 << " " << 4 << ": " << T_camera_model(r,3) << std::endl;
     for (int c = 0; c < 3; ++c) {
       T_camera_model(r, c) = C_camera_model.at<double>(r, c);
+      std::cout << r+1 << " " << c+1 << ": " << T_camera_model(r,c) << std::endl;
     }
   }
 
