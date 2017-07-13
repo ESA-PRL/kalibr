@@ -157,10 +157,10 @@ public:
     m_width(1280),
     m_height(960),
     m_tagSize(0.1),
-    m_fx(1419.81633673),
-    m_fy(1422.08972277),
-    m_px(652.276264771),
-    m_py(474.063082006),
+    m_fx(1463.69281334),
+    m_fy(1470.89223627),
+    m_px(690.847744448),
+    m_py(476.188317123),
 
     m_exposure(-1),
     m_gain(-1),
@@ -373,7 +373,7 @@ public:
 
       // capture frame
       //m_cap >> image;
-      image = cv::imread("/home/hdpr/Documents/apriltag_transform_test/pancam_apriltag_2.png", CV_LOAD_IMAGE_COLOR);
+      image = cv::imread("/home/hdpr/Desktop/pancam_tenerife_rear.png", CV_LOAD_IMAGE_COLOR);
 
       // alternative way is to grab, then retrieve; allows for
       // multiple grab when processing below frame rate - v4l keeps a
