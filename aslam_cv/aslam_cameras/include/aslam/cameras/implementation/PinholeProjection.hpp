@@ -780,7 +780,10 @@ bool PinholeProjection<DISTORTION_T>::initializeIntrinsics(const std::vector<Gri
 
   //get the median of the guesses
   if(f_guesses.empty())
-    return false;
+  {
+    //return false;
+    f_guesses.push_back(400.0);
+  }
   double f0 = PinholeHelpers::medianOfVectorElements(f_guesses);
 
   //set the estimate
